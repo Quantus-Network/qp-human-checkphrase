@@ -1,0 +1,20 @@
+name: human_checksum
+description: A tool to generate human-readable checksums from cryptocurrency addresses using the BIP-39 word list and PBKDF2
+version: 0.1.0
+homepage: https://github.com/Resonance-Network/human-checksum
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  crypto: ^3.0.3
+  pointycastle: ^3.6.2
+  path: ^1.8.0
+
+dev_dependencies:
+  test: ^1.24.0
+  lints: ^2.1.0
+
+# Add this section to include the word list file
+assets:
+  - assets/crypto_checksum_bip39.txt
