@@ -20,7 +20,9 @@ const main = async () => {
 
 ## Installation
 
-
+```shell
+npm i git+https://github.com/Quantus-Network/human-checkphrase.git#main:js
+```
 
 
 ## License
