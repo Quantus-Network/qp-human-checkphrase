@@ -4,7 +4,7 @@ A Javascript implementation of human-readable checksums for cryptocurrency addre
 
 ## Usage
 
-```js
+```ts
 import { addressToChecksum, loadBip39List } from "human-readable-checksum";
 
 const main = async () => {
@@ -14,11 +14,12 @@ const main = async () => {
 
   const checksum = addressToChecksum(address, wordList);
 
-  print(words.join('-')); // e.g. "museum-saddle-orphan-ribbon-peace"
+  console.log(checksum.join('-')); // e.g. "museum-saddle-orphan-ribbon-peace"
 }
 ```
 
 ## Installation
+
 
 
 
