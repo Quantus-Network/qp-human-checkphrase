@@ -18,8 +18,8 @@ describe("Generate a checksum from an address", () => {
     const checksum1 = addressToChecksum(testAddresses[0], wordList);
     const checksum2 = addressToChecksum(testAddresses[1], wordList);
 
-    console.log("LEGIT, :", checksum1);
-    console.log("POISONED, :", checksum2);
+    console.log("LEGIT, :", checksum1.join("-"));
+    console.log("POISONED, :", checksum2.join("-"));
 
     expect(checksum1).not.toEqual(checksum2);
   });

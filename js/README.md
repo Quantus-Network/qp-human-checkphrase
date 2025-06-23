@@ -5,31 +5,22 @@ A Javascript implementation of human-readable checksums for cryptocurrency addre
 ## Usage
 
 ```js
-import 'package:human_checksum/human_checksum.dart';
+import { addressToChecksum, loadBip39List } from "human-readable-checksum";
 
-void main() {
+const main = async () => {
   // Load the BIP-39 word list (2048 words)
-  final wordList = File('path/to/wordlist.txt').readAsLinesSync();
+  const wordList = await loadBip39List();
+  const address = '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa';
 
-  final checksum = HumanChecksum(wordList);
-  final address = '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa';
+  const checksum = addressToChecksum(address, wordList);
 
-  final words = checksum.addressToChecksum(address);
   print(words.join('-')); // e.g. "museum-saddle-orphan-ribbon-peace"
 }
 ```
 
 ## Installation
 
-Add to your `pubspec.yaml`:
 
-```yaml
-dependencies:
-  human_checksum:
-    git:
-      url: https://github.com/Resonance-Network/human-checksum.git
-      path: dart
-```
 
 ## License
 
