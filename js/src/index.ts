@@ -9,8 +9,6 @@ const CHECKSUM_LEN = 5;
 // Fix: Use Math.ceil to round up to the nearest integer
 const KEY_BYTECOUNT = Math.ceil((CHECKSUM_LEN * 11) / 8);
 
-var derivedKey = pbkdf2.pbkdf2Sync("password", "salt", 1, 32, "sha512");
-
 const loadBip39List = async () => {
   const response = await fetch(BIP39_URL);
 
@@ -26,13 +24,7 @@ const loadBip39List = async () => {
     .filter((word) => word.length > 0);
 };
 
-/**
- * Converts an address to a checksum using PBKDF2-HMAC-SHA256
- * @param {string} address - The input address string
- * @param {string[]} wordList - Array of words to map indices to
- * @returns {string[]} Array of checksum words
- */
-const addressToChecksum = (address, wordList) => {
+const addressToChecksum = (address: string, wordList: string[]) => {
   // PBKDF2-HMAC-SHA256 using the pbkdf2 package
   const key = pbkdf2.pbkdf2Sync(
     address,
@@ -52,7 +44,7 @@ const addressToChecksum = (address, wordList) => {
   keyInt >>= BigInt((8 * KEY_BYTECOUNT) % 11);
 
   // Split into 11-bit indices
-  const indices = [];
+  const indices: number[] = [];
   for (let i = 0; i < CHECKSUM_LEN; i++) {
     const shift = BigInt((CHECKSUM_LEN - 1 - i) * 11);
     const index = Number((keyInt >> shift) & 0x7ffn);

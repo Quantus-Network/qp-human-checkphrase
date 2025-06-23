@@ -1,10 +1,9 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
+import { createDefaultPreset } from "ts-jest";
 
-/** @type {import('jest').Config} */
-const config = {
+const tsJestTransformCfg = createDefaultPreset().transform;
+
+/** @type {import("jest").Config} **/
+export default {
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
 
@@ -29,7 +28,10 @@ const config = {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: ["/node_modules/"],
-  transform: {},
-};
 
-export default config;
+  // testEnvironment: "node",
+
+  transform: {
+    ...tsJestTransformCfg,
+  },
+};
