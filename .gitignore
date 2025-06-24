@@ -1,3 +1,5 @@
 target
 .idea
 /dart/.dart_tool
+node_modules
+dist
