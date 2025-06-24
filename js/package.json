@@ -23,8 +23,8 @@
     "start": "node dist/src/index.js",
     "build": "tsc",
     "prepare": "npm run build",
-    "test": "node node_modules/jest/bin/jest.js",
-    "test:watch": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
   "author": "Quantus Network",
   "license": "MIT",
