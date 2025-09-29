@@ -1,5 +1,5 @@
-use criterion::{Criterion, black_box, criterion_group, criterion_main};
-use human_readable_checksum::{address_to_checksum, load_bip39_list};
+use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use qp_human_checkphrase::{address_to_checksum, load_bip39_list};
 use sha2::{Digest, Sha256};
 
 fn bench_checksum(c: &mut Criterion) {
