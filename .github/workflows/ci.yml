@@ -1,0 +1,95 @@
+---
+name: Continuous Integration
+
+on:
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+      - "LICENSE"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
+      - "LICENSE"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_INCREMENTAL: 0
+  CARGO_TERM_COLOR: always
+
+jobs:
+  fast-checks:
+    name: 🏁 Fast Checks (Format)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install required components
+        run: rustup component add rustfmt --toolchain nightly
+      - name: Install taplo
+        run: cargo install taplo-cli --locked
+      - name: Run format checks
+        run: |
+          taplo format --check --config taplo.toml
+          cargo +nightly fmt --all -- --check
+
+  build-and-test-matrix:
+    name: 🛠️ Build & Test Matrix
+    needs: fast-checks
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update -yqq
+          sudo apt-get install -yqq --no-install-recommends \
+            libssl-dev \
+            pkg-config
+      - name: Install dependencies (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          # macOS usually has OpenSSL via Homebrew
+          echo "macOS dependencies ready"
+      - name: Install dependencies (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          # Windows dependencies handled by vcpkg or pre-installed
+          echo "Windows dependencies ready"
+      - name: Build
+        run: cargo build --locked --release
+      - name: Test
+        run: cargo test --locked --release
+      - name: Run benchmarks (dry run)
+        run: cargo bench --no-run
+
+  analysis:
+    name: 🤖 Analysis (Clippy & Doc)
+    needs: fast-checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -yqq
+          sudo apt-get install -yqq --no-install-recommends \
+            libssl-dev \
+            pkg-config
+      - name: Install required components
+        run: rustup component add rust-src clippy
+      - name: Run clippy
+        run: cargo clippy --locked --all-targets --all-features -- -D warnings
+      - name: Run doc
+        run: cargo doc --locked --no-deps --all-features
