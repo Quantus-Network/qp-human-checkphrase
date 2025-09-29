@@ -165,7 +165,7 @@ jobs:
 
           gh release create "$NEW_VERSION" \
             --repo "$GITHUB_REPOSITORY" \
-            --title "Human Readable Checksum - $NEW_VERSION" \
+            --title "QP Human Checkphrase - $NEW_VERSION" \
             --notes-file release_notes.txt \
             --target main \
             $DRAFT_FLAG

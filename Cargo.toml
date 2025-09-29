@@ -1,6 +1,20 @@
 [package]
-edition = "2024"
-name = "human-readable-checksum"
+authors = ["Quantus Network"]
+categories = ["cryptography", "encoding"]
+description = "Generate human-readable checksums from cryptocurrency addresses using BIP-39 words and PBKDF2 to prevent address poisoning attacks"
+edition = "2021"
+keywords = [
+	"address",
+	"bip39",
+	"checksum",
+	"cryptocurrency",
+	"quantus-network",
+	"security",
+]
+license = "MIT"
+name = "qp-human-checkphrase"
+readme = "README.md"
+repository = "https://github.com/quantus/qp-human-checkphrase"
 version = "0.1.0"
 
 [dependencies]

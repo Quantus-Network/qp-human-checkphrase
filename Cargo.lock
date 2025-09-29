@@ -548,18 +548,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6dbf3de79e51f3d586ab4cb9d5c3e2c14aa28ed23d180cf89b4df0454a69cc87"
 
 [[package]]
-name = "human-readable-checksum"
-version = "0.1.0"
-dependencies = [
- "criterion",
- "hex",
- "hmac",
- "pbkdf2",
- "reqwest",
- "sha2",
-]
-
-[[package]]
 name = "hyper"
 version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1038,6 +1026,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a31971752e70b8b2686d7e46ec17fb38dad4051d94024c88df49b667caea9c84"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "qp-human-checkphrase"
+version = "0.1.0"
+dependencies = [
+ "criterion",
+ "hex",
+ "hmac",
+ "pbkdf2",
+ "reqwest",
+ "sha2",
 ]
 
 [[package]]
