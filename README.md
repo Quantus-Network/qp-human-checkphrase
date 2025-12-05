@@ -1,7 +1,22 @@
 # human-checksum
 
 A tool to generate human-readable checksums from cryptocurrency addresses using the BIP-39 word list and PBKDF2. 
-Designed to make address verification easier and prevent address poisoning attacks—where attackers craft lookalike addresses to trick users. Users viewing an address can also be presented with a unique, memorable phrase (e.g., museum-saddle-orphan-ribbon).
+Designed to make address verification easier and prevent address poisoning attacks—where attackers craft lookalike addresses to trick users, this tool can be used with any existing blockchain address. Users viewing an address can also be presented with a unique, memorable phrase. Some examples:
+
+Address:
+qzpCoRjvHcnH8VnbS2qMYu41xR9m3Qq2kcKhXEFpPHu6oHW6h
+
+Checkphrase:Arrest-Enemy-Around-Answer-Clump
+
+Address:
+qznYAYX6TQKGhKPL8fGF7aSp8NvAm7x42SEctxUk35qnx6Psp
+
+Checkphrase:Upgrade-Duck-Select-Stove-Seminar
+
+Address:
+qzmbBbKgb94F42UXjNCtNsC5JTS1taKSsit3xwda1JD3LU3dB
+
+Checkphrase:Circle-Above-Scheme-Load-Alarm
 
 This repo contains:
 Rust: A library crate (human-readable-checksum) at the root for fast, reusable checksum generation.
