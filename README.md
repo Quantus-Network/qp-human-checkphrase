@@ -1,17 +1,23 @@
 # human-checkphrase
 
 A tool to generate human-readable checksums from cryptocurrency addresses using a curated positive wordlist and PBKDF2. 
-Designed to make address verification easier and prevent address poisoning attacks—where attackers craft lookalike addresses to trick users, this tool can be used with any existing blockchain address. Users viewing an address can also be presented with a unique, memorable phrase. Some examples:
+Designed to make address verification easier and prevent address poisoning attacks—where attackers craft lookalike addresses to trick users, this tool can be used with any existing blockchain address. Users viewing an address can also be presented with a unique, memorable phrase.
 
-Address:
-1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
+## Examples
 
-Checkphrase: Age-Awake-Secret-Blossom-Hedgehog
+| Address | Chain | Checkphrase |
+|---------|-------|-------------|
+| `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa` | Bitcoin | Age-Awake-Secret-Blossom-Hedgehog |
+| `1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa` | Bitcoin (poisoned) | Innocent-Fitness-Joyful-Brown-Surge |
+| `0x742d35Cc6634C0532925a3b844Bc9e7595f5bE21` | Ethereum | Donkey-Crucial-Beach-Offer-Expire |
+| `5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY` | Polkadot | Merge-Boss-Syrup-Inestimable-Toss |
+| `cosmos1hsk6jryyqjfhp5dhc55tc9jtckygx0eph6dd02` | Cosmos | Find-Frog-Basic-Reopen-Another |
+| `bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq` | Bitcoin (bech32) | View-Start-Satisfy-Immense-Clown |
+| `qzk7h3xH4Fmv2RqKpN8sT5jW9cY6gB1dL3mX0vQwEaUoZrJtS` | Quantus | Unveil-Butter-Always-Since-Schnorr |
+| `qzkABCDEF123456789abcdefGHIJKLMNOPQRSTUVWXYZ000001` | Quantus | Patch-Invite-Split-Surface-Dial |
+| `qzkXyZ987654321FeDcBaAbCdEfGhIjKlMnOpQrStUvWxYz99` | Quantus | Important-Extend-Barely-Close-Text |
 
-Address:
-1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa
-
-Checkphrase: Innocent-Fitness-Joyful-Brown-Surge
+Notice how the first two Bitcoin addresses differ by only one character (`v` vs `x`) but produce completely different checkphrases—this is exactly what helps prevent address poisoning attacks.
 
 ## Wordlist
 

@@ -84,8 +84,15 @@ mod tests {
 		);
 
 		let test_addresses = [
-			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", // Legit
-			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa", // Poisoned
+			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", // Bitcoin (Satoshi's address)
+			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa", // Poisoned version (one char different)
+			"0x742d35Cc6634C0532925a3b844Bc9e7595f5bE21", // Ethereum
+			"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY", // Polkadot
+			"cosmos1hsk6jryyqjfhp5dhc55tc9jtckygx0eph6dd02", // Cosmos
+			"bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq", // Bitcoin (bech32)
+			"qzk7h3xH4Fmv2RqKpN8sT5jW9cY6gB1dL3mX0vQwEaUoZrJtS", // Quantus
+			"qzkABCDEF123456789abcdefGHIJKLMNOPQRSTUVWXYZ000001", // Quantus 2
+			"qzkXyZ987654321FeDcBaAbCdEfGhIjKlMnOpQrStUvWxYz99", // Quantus 3
 		];
 		for addr in test_addresses {
 			let four_words = address_to_checksum(addr, &bip39_list);
