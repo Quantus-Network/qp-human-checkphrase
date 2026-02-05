@@ -1,6 +1,6 @@
 use std::{
 	fs::File,
-	io::{self, BufRead, BufReader, Write},
+	io::{self, BufRead, BufReader},
 	path::Path,
 };
 
@@ -8,46 +8,33 @@ use pbkdf2::pbkdf2_hmac;
 use sha2::Sha256;
 
 // Constants
-const WORD_LIST_FILE: &str = "crypto_checksum_bip39.txt";
-const BIP39_URL: &str =
-	"https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt";
+const WORD_LIST_FILE: &str = "final_wordlist.txt";
 const WORD_COUNT: usize = 2048;
 const SALT: &str = "human-readable-checksum";
 const ITERATIONS: u32 = 40000;
 const CHECKSUM_LEN: usize = 5;
 const KEY_BYTECOUNT: usize = (CHECKSUM_LEN * 11).div_ceil(8);
 
-pub fn load_bip39_list() -> io::Result<Vec<String>> {
-	// Check if local file exists and is valid
-	if Path::new(WORD_LIST_FILE).exists() {
-		let file = File::open(WORD_LIST_FILE)?;
-		let reader = BufReader::new(file);
-		let words: Vec<String> = reader.lines().collect::<io::Result<_>>()?;
-		if words.len() == WORD_COUNT {
-			println!("Loaded {} words from {}", words.len(), WORD_LIST_FILE);
-			return Ok(words);
-		}
-		println!("Local file {} is incomplete, re-downloading...", WORD_LIST_FILE);
+pub fn load_word_list() -> io::Result<Vec<String>> {
+	if !Path::new(WORD_LIST_FILE).exists() {
+		return Err(io::Error::new(
+			io::ErrorKind::NotFound,
+			format!("Word list file '{}' not found", WORD_LIST_FILE),
+		));
 	}
 
-	// Fetch from URL
-	let resp = reqwest::blocking::get(BIP39_URL).map_err(io::Error::other)?;
-	let text = resp.text().map_err(io::Error::other)?;
-	let words: Vec<String> = text.lines().map(String::from).collect();
+	let file = File::open(WORD_LIST_FILE)?;
+	let reader = BufReader::new(file);
+	let words: Vec<String> = reader.lines().collect::<io::Result<_>>()?;
 
 	if words.len() != WORD_COUNT {
 		return Err(io::Error::new(
 			io::ErrorKind::InvalidData,
-			"Fetched BIP-39 list has wrong length",
+			format!("Word list must contain exactly {} words, found {}", WORD_COUNT, words.len()),
 		));
 	}
 
-	// Save to file
-	let mut file = File::create(WORD_LIST_FILE)?;
-	for word in &words {
-		writeln!(file, "{}", word)?;
-	}
-	println!("Saved {} words to {}", words.len(), WORD_LIST_FILE);
+	println!("Loaded {} words from {}", words.len(), WORD_LIST_FILE);
 	Ok(words)
 }
 
@@ -87,7 +74,7 @@ mod tests {
 
 	#[test]
 	fn test_checksum() -> io::Result<()> {
-		let bip39_list = load_bip39_list()?;
+		let bip39_list = load_word_list()?;
 		let combos = (bip39_list.len() as u64).pow(CHECKSUM_LEN as u32);
 		println!("Total combos: {}", combos);
 		println!(

@@ -1,27 +1,15 @@
 import * as pbkdf2 from "pbkdf2";
+import wordlist from "./wordlist.json";
 
 // Constants
-const BIP39_URL =
-  "https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt";
 const SALT = "human-readable-checksum";
 const ITERATIONS = 40_000;
 const CHECKSUM_LEN = 5;
 // Fix: Use Math.ceil to round up to the nearest integer
 const KEY_BYTECOUNT = Math.ceil((CHECKSUM_LEN * 11) / 8);
 
-const loadBip39List = async () => {
-  const response = await fetch(BIP39_URL);
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  const text = await response.text();
-  return text
-    .trim()
-    .split("\n")
-    .map((word) => word.trim())
-    .filter((word) => word.length > 0);
+const loadWordList = (): string[] => {
+  return wordlist;
 };
 
 const addressToChecksum = (address: string, wordList: string[]) => {
@@ -55,4 +43,4 @@ const addressToChecksum = (address: string, wordList: string[]) => {
   return indices.map((i) => wordList[i]);
 };
 
-export { loadBip39List, addressToChecksum };
+export { loadWordList, addressToChecksum };

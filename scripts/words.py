@@ -4,7 +4,7 @@ import hmac
 import os
 
 # Constants
-WORD_LIST_FILE = 'crypto_checksum_bip39.txt'
+WORD_LIST_FILE = 'final_wordlist.txt'
 BIP39_URL = "https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt"
 ITERATIONS = 40000
 SALT = b'human-readable-checksum'

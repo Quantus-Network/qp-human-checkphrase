@@ -17,4 +17,4 @@ dev_dependencies:
 
 # Add this section to include the word list file
 assets:
-  - assets/crypto_checksum_bip39.txt
+  - assets/final_wordlist.txt
