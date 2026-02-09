@@ -13,7 +13,8 @@
   },
   "files": [
     "package.json",
-    "dist/"
+    "dist/",
+    "src/wordlist.json"
   ],
   "repository": {
     "type": "git",

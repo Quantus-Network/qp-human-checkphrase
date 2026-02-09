@@ -8,7 +8,7 @@ void main() {
 
   setUp(() {
     // Load the word list from the bundled asset
-    final file = File('../crypto_checksum_bip39.txt');
+    final file = File('../final_wordlist.txt');
     wordList = file.readAsLinesSync();
     humanChecksum = HumanChecksum(wordList);
   });
@@ -21,8 +21,8 @@ void main() {
 
     // These values should match the output from the Rust and Python implementations
     final expectedChecksums = [
-      ['alarm', 'banana', 'secret', 'border', 'horror'],
-      ['join', 'flower', 'lamp', 'busy', 'summer'],
+      ['age', 'awake', 'secret', 'blossom', 'hedgehog'],
+      ['innocent', 'fitness', 'joyful', 'brown', 'surge'],
     ];
 
     for (var i = 0; i < testAddresses.length; i++) {
@@ -47,7 +47,11 @@ void main() {
     final checksum1 = humanChecksum.addressToChecksum(address1);
     final checksum2 = humanChecksum.addressToChecksum(address2);
     // expect known checksums same as the other implementations.
-    expect(checksum1, equals(['alarm', 'banana', 'secret', 'border', 'horror']));
-    expect(checksum2, equals(['join', 'flower', 'lamp', 'busy', 'summer']));
+    expect(
+      checksum1,
+      equals(['age', 'awake', 'secret', 'blossom', 'hedgehog']),
+    );
+    expect(
+        checksum2, equals(['innocent', 'fitness', 'joyful', 'brown', 'surge']));
   });
 }
