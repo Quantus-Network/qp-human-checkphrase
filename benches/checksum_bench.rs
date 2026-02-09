@@ -1,15 +1,15 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use qp_human_checkphrase::{address_to_checksum, load_bip39_list};
+use qp_human_checkphrase::{address_to_checksum, load_word_list};
 use sha2::{Digest, Sha256};
 
 fn bench_checksum(c: &mut Criterion) {
-	// Load BIP-39 list once (not part of the benchmark)
-	let bip39_list = load_bip39_list().expect("Failed to load BIP-39 list");
+	// Load word list once (not part of the benchmark)
+	let word_list = load_word_list().expect("Failed to load word list");
 	let address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
 
 	// Benchmark PBKDF2 (current method)
 	c.bench_function("pbkdf2_40k", |b| {
-		b.iter(|| black_box(address_to_checksum(black_box(address), &bip39_list)))
+		b.iter(|| black_box(address_to_checksum(black_box(address), &word_list)))
 	});
 
 	// Benchmark SHA-256 (alternative method)
@@ -28,7 +28,7 @@ fn bench_checksum(c: &mut Criterion) {
 				((key_int >> 11) & 0x7FF) as usize,
 				(key_int & 0x7FF) as usize,
 			];
-			let words: Vec<String> = indices.iter().map(|&i| bip39_list[i].clone()).collect();
+			let words: Vec<String> = indices.iter().map(|&i| word_list[i].clone()).collect();
 			black_box(words)
 		})
 	});
