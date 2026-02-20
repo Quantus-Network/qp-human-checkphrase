@@ -5,15 +5,15 @@ above
 absent
 absorb
 abstract
-x absurd
+ace
 abundance
 access
-x accident
+awe
 acclaim
 account
 accurate
 achieve
-x acid
+authentic
 acoustic
 acquire
 across
@@ -22,7 +22,7 @@ action
 actor
 actress
 actual
-? acumen
+admire
 adapt
 add
 address
@@ -31,14 +31,14 @@ adjust
 admit
 adopt
 adorable
-y adroit
-x adult
+aid
+anew
 advance
 adventurous
 advice
 advocate
 aerobic
-x affair
+active
 affection
 affinity
 affluence
@@ -96,7 +96,7 @@ answer
 antenna
 antique
 any
-y apotheosis
+alight
 appear
 apple
 approve
@@ -157,10 +157,10 @@ balance
 balcony
 ball
 bamboo
-y banana
+buff
 banner
 bar
-x barely
+beam
 bargain
 barrel
 base
@@ -191,7 +191,7 @@ bicycle
 bid
 big
 bike
-x bind
+bloom
 biology
 bird
 birth
@@ -203,7 +203,7 @@ bless
 bliss
 blithe
 blockbuster
-x blood
+blessing
 blossom
 blouse
 blue
@@ -211,7 +211,7 @@ blur
 blush
 board
 boat
-x body
+body
 boil
 bold
 bolster
@@ -243,7 +243,7 @@ brilliance
 bring
 brisk
 broccoli
-x broken
+balloon
 bronze
 broom
 brother
@@ -252,7 +252,7 @@ brush
 bubble
 buddy
 budget
-x buffalo
+barn
 build
 bulb
 bulk
@@ -406,7 +406,7 @@ craft
 crane
 crater
 crawl
-x crazy
+celebrate
 cream
 credit
 creek
@@ -424,7 +424,7 @@ crush
 crystal
 cube
 culture
-x cunning
+care
 cupboard
 cure
 curious
@@ -450,7 +450,7 @@ dazzling
 deal
 dear
 debate
-y debonair
+chill
 debris
 decade
 december
@@ -476,8 +476,8 @@ describe
 desert
 design
 desk
-x despair
-x destroy
+chime
+decent
 detail
 detect
 develop
@@ -516,9 +516,9 @@ door
 dose
 double
 dove
-x draft
+divine
 dragon
-x drama
+dew
 drastic
 draw
 dream
@@ -548,23 +548,23 @@ ease
 easily
 east
 easy
-y ebullient
+elf
 echo
 ecology
 economy
 ecstatic
 edge
-y edify
+earnest
 edit
 educate
 effective
 efficient
 effort
-y effusive
+empire
 egg
 eight
 either
-y elan
+elan
 elated
 elbow
 elder
@@ -602,12 +602,12 @@ enhance
 enjoy
 enlist
 enough
-y enraptured
+ember
 enrich
 enroll
 ensure
 enter
-y enthrall
+embodied
 entice
 entry
 envelope
@@ -617,7 +617,7 @@ equal
 equip
 erase
 ergonomic
-y erudite
+enlightened
 escape
 essay
 essence
@@ -664,7 +664,7 @@ facilitate
 faculty
 fair
 faith
-x fall
+flying
 fame
 family
 famous
@@ -675,7 +675,7 @@ farm
 fascinate
 fashion
 fast
-x fatal
+flair
 father
 faucet
 faultless
@@ -684,7 +684,7 @@ fearless
 feasible
 feature
 february
-y fecilitous
+flex
 feel
 feisty
 felicity
@@ -764,7 +764,7 @@ frolic
 front
 frozen
 fruit
-y ftw
+flow
 fuel
 fulfill
 fun
@@ -781,7 +781,7 @@ gap
 garden
 garlic
 garment
-x gasp
+grand
 gate
 gather
 gaze
@@ -950,7 +950,7 @@ indicate
 indoor
 industry
 inestimable
-x inexpensive
+impressed
 infant
 influential
 inform
@@ -967,7 +967,7 @@ inspire
 install
 intact
 interest
-x intimacy
+incredible
 into
 intricate
 intuitive
@@ -1079,7 +1079,7 @@ load
 lobster
 local
 logic
-x lonely
+lit
 long
 loop
 lottery
@@ -1136,7 +1136,7 @@ melody
 melt
 member
 memory
-y mempool
+mist
 mention
 menu
 mercy
@@ -1272,7 +1272,7 @@ outreach
 outside
 outwit
 oval
-y ovation
+ovation
 oven
 overjoyed
 oxygen
@@ -1327,7 +1327,7 @@ picnic
 picture
 piece
 piety
-x pig
+plus
 pigeon
 pilot
 pink
@@ -1534,14 +1534,14 @@ sample
 sand
 satisfy
 satoshi
-x sausage
+sage
 save
 savings
 savvy
 scale
 scan
 scene
-x schnorr
+supple
 school
 science
 scissors
@@ -1571,7 +1571,7 @@ service
 session
 setup
 seven
-x sexy
+sober
 shaft
 share
 shell
@@ -1610,9 +1610,9 @@ ski
 skill
 skin
 skirt
-x skull
+sincere
 slab
-x slam
+star
 sleep
 slender
 slick
@@ -1627,7 +1627,7 @@ smooth
 snack
 snappy
 snazzy
-x sniff
+sparkle
 snow
 soap
 soccer
@@ -1672,7 +1672,7 @@ spot
 spray
 spread
 spring
-x spy
+spicy
 square
 squeeze
 squirrel
@@ -1710,7 +1710,7 @@ strong
 student
 stuff
 stunning
-x stupendous
+stroll
 sturdier
 style
 suave
@@ -1726,7 +1726,7 @@ sugar
 suggest
 suit
 summer
-y sumptuous
+sun
 sunny
 sunset
 super
@@ -1761,8 +1761,8 @@ tag
 tail
 talent
 talk
-x tank
-y tantalize
+thrill
+tea
 task
 taste
 tattoo
@@ -1770,7 +1770,7 @@ taxi
 teach
 team
 tell
-x tempt
+tact
 ten
 tenant
 tender
@@ -1804,7 +1804,7 @@ tingle
 tiny
 tip
 tissue
-y titillate
+tap
 title
 toast
 tobacco
@@ -1877,7 +1877,7 @@ type
 umbrella
 unabashed
 unaffected
-y unassailable
+united
 unbeatable
 unbiased
 unbound
@@ -1886,14 +1886,14 @@ uncover
 undamaged
 under
 undisputable
-y unencumbered
-y unequivocal
+up
+ultimate
 unfazed
-y unfettered
+ultra
 unfold
 unified
 unique
-unit
+unity
 universe
 unlimited
 unlock
@@ -1928,7 +1928,7 @@ valley
 valor
 valuable
 valve
-x vanish
+vim
 vapor
 various
 vast
@@ -1979,11 +1979,11 @@ water
 wave
 way
 wealth
-x weapon
+whole
 wear
 weather
 web
-x web3
+web3
 wedding
 weekend
 welcome
@@ -1996,7 +1996,7 @@ wheel
 when
 where
 whisper
-yy wholeheartedly
+wholeheartedly
 wide
 wieldy
 wife
