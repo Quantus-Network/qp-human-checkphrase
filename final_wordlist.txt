@@ -1464,7 +1464,7 @@ rely
 remain
 remember
 remind
-yyyyyyy remunerate
+remunerate
 renaissance
 render
 renew
@@ -1534,14 +1534,14 @@ sample
 sand
 satisfy
 satoshi
-sausage
+x sausage
 save
 savings
 savvy
 scale
 scan
 scene
-schnorr
+x schnorr
 school
 science
 scissors
@@ -1571,7 +1571,7 @@ service
 session
 setup
 seven
-sexy
+x sexy
 shaft
 share
 shell
@@ -1610,9 +1610,9 @@ ski
 skill
 skin
 skirt
-skull
+x skull
 slab
-slam
+x slam
 sleep
 slender
 slick
@@ -1627,7 +1627,7 @@ smooth
 snack
 snappy
 snazzy
-sniff
+x sniff
 snow
 soap
 soccer
@@ -1672,7 +1672,7 @@ spot
 spray
 spread
 spring
-spy
+x spy
 square
 squeeze
 squirrel
@@ -1710,7 +1710,7 @@ strong
 student
 stuff
 stunning
-stupendous
+x stupendous
 sturdier
 style
 suave
@@ -1726,7 +1726,7 @@ sugar
 suggest
 suit
 summer
-sumptuous
+y sumptuous
 sunny
 sunset
 super
@@ -1761,8 +1761,8 @@ tag
 tail
 talent
 talk
-tank
-tantalize
+x tank
+y tantalize
 task
 taste
 tattoo
@@ -1770,7 +1770,7 @@ taxi
 teach
 team
 tell
-tempt
+x tempt
 ten
 tenant
 tender
@@ -1804,7 +1804,7 @@ tingle
 tiny
 tip
 tissue
-titillate
+y titillate
 title
 toast
 tobacco
@@ -1845,14 +1845,14 @@ travel
 tray
 treat
 tree
-tremendously
+tremendous
 trend
 trial
 tribe
 trigger
 trim
 triumph
-trivially
+trivial
 trophy
 truck
 true
@@ -1877,7 +1877,7 @@ type
 umbrella
 unabashed
 unaffected
-unassailable
+y unassailable
 unbeatable
 unbiased
 unbound
@@ -1886,10 +1886,10 @@ uncover
 undamaged
 under
 undisputable
-unencumbered
-unequivocal
+y unencumbered
+y unequivocal
 unfazed
-unfettered
+y unfettered
 unfold
 unified
 unique
@@ -1928,7 +1928,7 @@ valley
 valor
 valuable
 valve
-vanish
+x vanish
 vapor
 various
 vast
@@ -1979,11 +1979,11 @@ water
 wave
 way
 wealth
-weapon
+x weapon
 wear
 weather
 web
-web3
+x web3
 wedding
 weekend
 welcome
@@ -1996,7 +1996,7 @@ wheel
 when
 where
 whisper
-wholeheartedly
+yy wholeheartedly
 wide
 wieldy
 wife
