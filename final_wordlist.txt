@@ -5,15 +5,15 @@ above
 absent
 absorb
 abstract
-absurd
+x absurd
 abundance
 access
-accident
+x accident
 acclaim
 account
 accurate
 achieve
-acid
+x acid
 acoustic
 acquire
 across
@@ -22,7 +22,7 @@ action
 actor
 actress
 actual
-acumen
+? acumen
 adapt
 add
 address
@@ -31,14 +31,14 @@ adjust
 admit
 adopt
 adorable
-adroit
-adult
+y adroit
+x adult
 advance
 adventurous
 advice
 advocate
 aerobic
-affair
+x affair
 affection
 affinity
 affluence
@@ -96,7 +96,7 @@ answer
 antenna
 antique
 any
-apotheosis
+y apotheosis
 appear
 apple
 approve
@@ -157,10 +157,10 @@ balance
 balcony
 ball
 bamboo
-banana
+y banana
 banner
 bar
-barely
+x barely
 bargain
 barrel
 base
@@ -191,7 +191,7 @@ bicycle
 bid
 big
 bike
-bind
+x bind
 biology
 bird
 birth
@@ -203,7 +203,7 @@ bless
 bliss
 blithe
 blockbuster
-blood
+x blood
 blossom
 blouse
 blue
@@ -211,7 +211,7 @@ blur
 blush
 board
 boat
-body
+x body
 boil
 bold
 bolster
@@ -243,7 +243,7 @@ brilliance
 bring
 brisk
 broccoli
-broken
+x broken
 bronze
 broom
 brother
@@ -252,7 +252,7 @@ brush
 bubble
 buddy
 budget
-buffalo
+x buffalo
 build
 bulb
 bulk
@@ -406,7 +406,7 @@ craft
 crane
 crater
 crawl
-crazy
+x crazy
 cream
 credit
 creek
@@ -418,13 +418,13 @@ crouch
 crowd
 crucial
 cruise
-crumble
+crumb
 crunch
 crush
 crystal
 cube
 culture
-cunning
+x cunning
 cupboard
 cure
 curious
@@ -450,7 +450,7 @@ dazzling
 deal
 dear
 debate
-debonair
+y debonair
 debris
 decade
 december
@@ -476,8 +476,8 @@ describe
 desert
 design
 desk
-despair
-destroy
+x despair
+x destroy
 detail
 detect
 develop
@@ -516,9 +516,9 @@ door
 dose
 double
 dove
-draft
+x draft
 dragon
-drama
+x drama
 drastic
 draw
 dream
@@ -548,23 +548,23 @@ ease
 easily
 east
 easy
-ebullient
+y ebullient
 echo
 ecology
 economy
 ecstatic
 edge
-edify
+y edify
 edit
 educate
 effective
 efficient
 effort
-effusive
+y effusive
 egg
 eight
 either
-elan
+y elan
 elated
 elbow
 elder
@@ -602,12 +602,12 @@ enhance
 enjoy
 enlist
 enough
-enraptured
+y enraptured
 enrich
 enroll
 ensure
 enter
-enthrall
+y enthrall
 entice
 entry
 envelope
@@ -617,7 +617,7 @@ equal
 equip
 erase
 ergonomic
-erudite
+y erudite
 escape
 essay
 essence
@@ -664,7 +664,7 @@ facilitate
 faculty
 fair
 faith
-fall
+x fall
 fame
 family
 famous
@@ -675,7 +675,7 @@ farm
 fascinate
 fashion
 fast
-fatal
+x fatal
 father
 faucet
 faultless
@@ -684,7 +684,7 @@ fearless
 feasible
 feature
 february
-fecilitous
+y fecilitous
 feel
 feisty
 felicity
@@ -764,7 +764,7 @@ frolic
 front
 frozen
 fruit
-ftw
+y ftw
 fuel
 fulfill
 fun
@@ -781,7 +781,7 @@ gap
 garden
 garlic
 garment
-gasp
+x gasp
 gate
 gather
 gaze
@@ -863,7 +863,7 @@ hamster
 hand
 happy
 harbor
-hardier
+hardy
 harmony
 harvest
 hash
@@ -950,7 +950,7 @@ indicate
 indoor
 industry
 inestimable
-inexpensive
+x inexpensive
 infant
 influential
 inform
@@ -967,7 +967,7 @@ inspire
 install
 intact
 interest
-intimacy
+x intimacy
 into
 intricate
 intuitive
@@ -1079,7 +1079,7 @@ load
 lobster
 local
 logic
-lonely
+x lonely
 long
 loop
 lottery
@@ -1136,7 +1136,7 @@ melody
 melt
 member
 memory
-mempool
+y mempool
 mention
 menu
 mercy
@@ -1272,7 +1272,7 @@ outreach
 outside
 outwit
 oval
-ovation
+y ovation
 oven
 overjoyed
 oxygen
@@ -1327,7 +1327,7 @@ picnic
 picture
 piece
 piety
-pig
+x pig
 pigeon
 pilot
 pink
@@ -1464,7 +1464,7 @@ rely
 remain
 remember
 remind
-remunerate
+yyyyyyy remunerate
 renaissance
 render
 renew
