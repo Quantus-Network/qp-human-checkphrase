@@ -158,6 +158,7 @@ balcony
 ball
 balloon
 bamboo
+banana
 banner
 bar
 bargain
@@ -200,7 +201,6 @@ blade
 blameless
 blanket
 bless
-blessing
 bliss
 blithe
 blockbuster
@@ -541,9 +541,9 @@ dwarf
 dynamic
 eager
 eagle
+eagle
 early
 earn
-earnest
 earth
 ease
 easily
@@ -570,6 +570,7 @@ electric
 elegant
 element
 elephant
+elephant
 elevator
 elf
 elite
@@ -577,7 +578,6 @@ eloquence
 else
 embark
 ember
-embodied
 embody
 embrace
 emerge
@@ -716,6 +716,7 @@ fix
 flag
 flair
 flame
+flamingo
 flash
 flat
 flavor
@@ -728,7 +729,6 @@ float
 flock
 floor
 flourish
-flow
 flower
 fluent
 fluid
@@ -784,6 +784,7 @@ garment
 gate
 gather
 gaze
+gecko
 geekier
 gem
 general
@@ -831,7 +832,6 @@ grab
 grace
 grain
 grand
-grant
 grape
 grass
 grateful
@@ -1037,6 +1037,7 @@ laud
 laugh
 laundry
 lava
+lavender
 lavish
 lawn
 lawsuit
@@ -1049,6 +1050,7 @@ ledger
 legend
 leisure
 lemon
+lemur
 lend
 length
 lenient
@@ -1066,6 +1068,7 @@ light
 likable
 like
 liking
+lily
 limb
 limit
 link
@@ -1073,7 +1076,6 @@ lion
 liquid
 list
 lit
-little
 live
 lizard
 load
@@ -1343,7 +1345,6 @@ pledge
 plentiful
 pluck
 plus
-plush
 poem
 poetic
 poignant
@@ -1354,6 +1355,7 @@ polished
 pond
 pony
 pool
+poppy
 popular
 portion
 posh
@@ -1521,10 +1523,10 @@ rural
 saddle
 safe
 sage
-sagely
 sail
 saint
 salad
+salamander
 salient
 salmon
 salon
@@ -1595,7 +1597,6 @@ silly
 silver
 similar
 simple
-since
 sincere
 sing
 siren
@@ -1615,6 +1616,7 @@ slender
 slick
 slide
 slot
+sloth
 slush
 small
 smart
@@ -1658,7 +1660,6 @@ spell
 spend
 sphere
 spice
-spicy
 spin
 spirit
 splendid
@@ -1683,7 +1684,6 @@ stake
 stamp
 stand
 star
-start
 state
 staunch
 stay
@@ -1767,7 +1767,6 @@ task
 taste
 tattoo
 taxi
-tea
 teach
 team
 tell
@@ -1862,6 +1861,7 @@ trust
 truth
 try
 tube
+tulip
 tuna
 tunnel
 turkey
@@ -1885,13 +1885,13 @@ unbound
 uncle
 uncover
 undamaged
+undefeated
 under
 undisputable
 unfazed
 unfold
 unified
 unique
-united
 unity
 universe
 unlimited
@@ -1905,7 +1905,6 @@ until
 unusual
 unveil
 unwavering
-up
 upbeat
 update
 upgrade
@@ -1914,6 +1913,7 @@ uphold
 uplift
 upon
 upscale
+upside
 urban
 urge
 usable
@@ -1940,6 +1940,7 @@ venture
 venue
 verb
 verify
+veronica
 version
 very
 vessel
@@ -1952,7 +1953,6 @@ view
 vigilant
 vigor
 village
-vim
 vintage
 violin
 virtual
@@ -1996,7 +1996,6 @@ when
 where
 whisper
 whole
-wholeheartedly
 wide
 wieldy
 wife
@@ -2018,6 +2017,7 @@ witness
 witty
 wolf
 woman
+wombat
 won
 wonder
 wood
@@ -2030,6 +2030,7 @@ wow
 wrap
 wrist
 write
+yak
 yard
 year
 yellow
@@ -2041,7 +2042,6 @@ yummy
 zeal
 zebra
 zen
-zenith
 zest
 zippy
 zone
