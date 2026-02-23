@@ -37,6 +37,20 @@ The wordlist was curated by combining and filtering several sources:
 
 Build tools for maintaining the wordlist are in `wordlists/`.
 
+### Syncing Wordlists
+
+The canonical wordlist is `final_wordlist.txt` in the repo root. Copies exist in `js/` and `dart/` for packaging. To sync after editing the canonical file:
+
+```bash
+python3 scripts/sync_wordlists.py
+```
+
+To regenerate test vectors (1171 vectors covering all 2048 words):
+
+```bash
+python3 scripts/generate_test_vectors.py
+```
+
 ## This repo contains
 
 - **Rust**: A library crate at the root for fast, reusable checksum generation
@@ -51,9 +65,11 @@ Build tools for maintaining the wordlist are in `wordlists/`.
 ```
 
 Or run individually:
-- Rust: `cargo test -- --nocapture`
+- Rust: `cargo test --release -- --nocapture`
 - JavaScript: `cd js && npm test`
 - Dart: `cd dart && dart test`
+
+Tests validate against 1171 shared test vectors in `test-vectors/checksums.json` to ensure all implementations produce identical results.
 
 ## Security Analysis
 

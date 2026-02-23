@@ -71,35 +71,91 @@ pub fn address_to_checksum(address: &str, word_list: &[String]) -> Vec<String> {
 #[cfg(test)]
 mod tests {
 	use super::*;
+	use serde::Deserialize;
+	use std::fs;
+
+	const TEST_VECTORS_PATH: &str = "test-vectors/checksums.json";
+
+	#[derive(Deserialize)]
+	struct TestVectors {
+		#[serde(rename = "testCases")]
+		test_cases: Vec<TestCase>,
+	}
+
+	#[derive(Deserialize)]
+	struct TestCase {
+		address: String,
+		description: String,
+		expected: Vec<String>,
+	}
+
+	fn load_test_vectors() -> TestVectors {
+		let content =
+			fs::read_to_string(TEST_VECTORS_PATH).expect("Failed to read test vectors file");
+		serde_json::from_str(&content).expect("Failed to parse test vectors JSON")
+	}
 
 	#[test]
-	fn test_checksum() -> io::Result<()> {
-		let bip39_list = load_word_list()?;
-		let combos = (bip39_list.len() as u64).pow(CHECKSUM_LEN as u32);
-		println!("Total combos: {}", combos);
-		println!(
-			"Sample: {:?} ... {:?}",
-			&bip39_list[..CHECKSUM_LEN],
-			&bip39_list[bip39_list.len() - CHECKSUM_LEN..]
-		);
+	fn test_checksum_against_vectors() -> io::Result<()> {
+		let word_list = load_word_list()?;
+		let vectors = load_test_vectors();
 
-		let test_addresses = [
-			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", // Bitcoin (Satoshi's address)
-			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa", // Poisoned version (one char different)
-			"0x742d35Cc6634C0532925a3b844Bc9e7595f5bE21", // Ethereum
-			"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY", // Polkadot
-			"cosmos1hsk6jryyqjfhp5dhc55tc9jtckygx0eph6dd02", // Cosmos
-			"bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq", // Bitcoin (bech32)
-			"qzk7h3xH4Fmv2RqKpN8sT5jW9cY6gB1dL3mX0vQwEaUoZrJtS", // Quantus
-			"qzkABCDEF123456789abcdefGHIJKLMNOPQRSTUVWXYZ000001", // Quantus 2
-			"qzkXyZ987654321FeDcBaAbCdEfGhIjKlMnOpQrStUvWxYz99", // Quantus 3
-		];
-		for addr in test_addresses {
-			let four_words = address_to_checksum(addr, &bip39_list);
-			println!("Address: {}", addr);
-			println!("Checksum: {}", four_words.join("-"));
+		println!("Running {} test vectors...", vectors.test_cases.len());
+
+		let mut passed = 0;
+		let mut failed = 0;
+
+		for case in &vectors.test_cases {
+			let checksum = address_to_checksum(&case.address, &word_list);
+
+			if checksum == case.expected {
+				passed += 1;
+			} else {
+				failed += 1;
+				println!("FAIL: {}", case.description);
+				println!("  Address:  {}", case.address);
+				println!("  Expected: {:?}", case.expected);
+				println!("  Got:      {:?}", checksum);
+			}
 		}
 
+		println!("\nResults: {} passed, {} failed", passed, failed);
+
+		assert_eq!(failed, 0, "{} test vectors failed", failed);
+		Ok(())
+	}
+
+	#[test]
+	fn test_wordlist_size() -> io::Result<()> {
+		let word_list = load_word_list()?;
+		assert_eq!(word_list.len(), WORD_COUNT, "Wordlist must have exactly {} words", WORD_COUNT);
+		Ok(())
+	}
+
+	#[test]
+	fn test_deterministic() -> io::Result<()> {
+		let word_list = load_word_list()?;
+		let address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+
+		let checksum1 = address_to_checksum(address, &word_list);
+		let checksum2 = address_to_checksum(address, &word_list);
+
+		assert_eq!(checksum1, checksum2, "Checksums should be deterministic");
+		Ok(())
+	}
+
+	#[test]
+	fn test_different_addresses_produce_different_checksums() -> io::Result<()> {
+		let word_list = load_word_list()?;
+
+		// These addresses differ by only one character
+		let addr1 = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+		let addr2 = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa";
+
+		let checksum1 = address_to_checksum(addr1, &word_list);
+		let checksum2 = address_to_checksum(addr2, &word_list);
+
+		assert_ne!(checksum1, checksum2, "Different addresses should produce different checksums");
 		Ok(())
 	}
 }
