@@ -170,10 +170,12 @@ basket
 beach
 beam
 bean
+bear
 beauty
 because
 beckon
 become
+beetle
 befit
 before
 begin
@@ -200,7 +202,7 @@ black
 blade
 blameless
 blanket
-bless
+blessing
 bliss
 blithe
 blockbuster
@@ -275,6 +277,7 @@ cable
 cactus
 cake
 calm
+camel
 camera
 camp
 canal
@@ -541,12 +544,10 @@ dwarf
 dynamic
 eager
 eagle
-eagle
 early
 earn
 earth
 ease
-easily
 east
 easy
 echo
@@ -569,7 +570,6 @@ elder
 electric
 elegant
 element
-elephant
 elephant
 elevator
 elf
@@ -924,6 +924,7 @@ humor
 hundred
 husband
 hybrid
+hydra
 ice
 icon
 idea
@@ -988,6 +989,7 @@ jar
 jazz
 jeans
 jelly
+jellyfish
 jewel
 job
 join
@@ -1245,6 +1247,7 @@ obvious
 occur
 ocean
 october
+octopus
 offer
 office
 often
@@ -1259,6 +1262,7 @@ opera
 option
 opulent
 orange
+orangutan
 orbit
 orchard
 order
@@ -1277,6 +1281,7 @@ oval
 ovation
 oven
 overjoyed
+owl
 oxygen
 oyster
 ozone
@@ -1616,7 +1621,6 @@ slender
 slick
 slide
 slot
-sloth
 slush
 small
 smart
@@ -1794,7 +1798,6 @@ throw
 thumb
 thunder
 ticket
-tide
 tidy
 tiger
 tilt
@@ -1918,7 +1921,6 @@ urban
 urge
 usable
 usage
-useable
 useful
 usual
 utility
@@ -1940,7 +1942,6 @@ venture
 venue
 verb
 verify
-veronica
 version
 very
 vessel
@@ -1982,7 +1983,6 @@ wealth
 wear
 weather
 web
-web3
 wedding
 weekend
 welcome
