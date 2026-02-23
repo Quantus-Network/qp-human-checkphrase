@@ -1,37 +1,96 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:test/test.dart';
 import 'package:human_checksum/human_checksum.dart';
 
+class TestCase {
+  final String address;
+  final String description;
+  final List<String> expected;
+
+  TestCase({
+    required this.address,
+    required this.description,
+    required this.expected,
+  });
+
+  factory TestCase.fromJson(Map<String, dynamic> json) {
+    return TestCase(
+      address: json['address'] as String,
+      description: json['description'] as String,
+      expected: (json['expected'] as List).cast<String>(),
+    );
+  }
+}
+
+class TestVectors {
+  final String version;
+  final String description;
+  final List<TestCase> testCases;
+
+  TestVectors({
+    required this.version,
+    required this.description,
+    required this.testCases,
+  });
+
+  factory TestVectors.fromJson(Map<String, dynamic> json) {
+    return TestVectors(
+      version: json['version'] as String,
+      description: json['description'] as String,
+      testCases: (json['testCases'] as List)
+          .map((e) => TestCase.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+}
+
+TestVectors loadTestVectors() {
+  final file = File('../test-vectors/checksums.json');
+  final content = file.readAsStringSync();
+  final json = jsonDecode(content) as Map<String, dynamic>;
+  return TestVectors.fromJson(json);
+}
+
 void main() {
   late List<String> wordList;
   late HumanChecksum humanChecksum;
+  late TestVectors testVectors;
 
   setUp(() {
     // Load the word list from the bundled asset
     final file = File('../final_wordlist.txt');
     wordList = file.readAsLinesSync();
     humanChecksum = HumanChecksum(wordList);
+    testVectors = loadTestVectors();
   });
 
-  test('generates same checksums as reference implementation', () {
-    final testAddresses = [
-      '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', // Legit
-      '1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa', // Poisoned
-    ];
+  test('wordlist has 2048 words', () {
+    expect(wordList.length, equals(2048));
+  });
 
-    // These values should match the output from the Rust and Python implementations
-    final expectedChecksums = [
-      ['age', 'awake', 'secret', 'blossom', 'hedgehog'],
-      ['innocent', 'fitness', 'joyful', 'brown', 'surge'],
-    ];
+  test('passes all test vectors', () {
+    print('Running ${testVectors.testCases.length} test vectors...');
 
-    for (var i = 0; i < testAddresses.length; i++) {
-      final checksum = humanChecksum.addressToChecksum(testAddresses[i]);
-      print('Address: ${testAddresses[i]}');
-      print('Checksum: ${checksum.join('-')}');
-      // Uncomment after adding expected values:
-      expect(checksum, equals(expectedChecksums[i]));
+    var passed = 0;
+    var failed = 0;
+
+    for (final testCase in testVectors.testCases) {
+      final checksum = humanChecksum.addressToChecksum(testCase.address);
+
+      if (checksum.join(',') == testCase.expected.join(',')) {
+        passed++;
+      } else {
+        failed++;
+        print('FAIL: ${testCase.description}');
+        print('  Address:  ${testCase.address}');
+        print('  Expected: ${testCase.expected}');
+        print('  Got:      $checksum');
+      }
     }
+
+    print('\nResults: $passed passed, $failed failed');
+    expect(failed, equals(0));
   });
 
   test('generates consistent checksums', () {
@@ -46,12 +105,6 @@ void main() {
     final address2 = '1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa';
     final checksum1 = humanChecksum.addressToChecksum(address1);
     final checksum2 = humanChecksum.addressToChecksum(address2);
-    // expect known checksums same as the other implementations.
-    expect(
-      checksum1,
-      equals(['age', 'awake', 'secret', 'blossom', 'hedgehog']),
-    );
-    expect(
-        checksum2, equals(['innocent', 'fitness', 'joyful', 'brown', 'surge']));
+    expect(checksum1, isNot(equals(checksum2)));
   });
 }

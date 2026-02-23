@@ -1037,6 +1037,8 @@ dependencies = [
  "hmac",
  "pbkdf2",
  "reqwest",
+ "serde",
+ "serde_json",
  "sha2",
 ]
 

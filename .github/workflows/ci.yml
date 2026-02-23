@@ -24,6 +24,18 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  wordlist-sync-check:
+    name: 📋 Wordlist Sync Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check wordlists are in sync
+        run: python scripts/sync_wordlists.py --check
+
   fast-checks:
     name: 🏁 Fast Checks (Format)
     runs-on: ubuntu-latest
@@ -93,3 +105,39 @@ jobs:
         run: cargo clippy --locked --all-targets --all-features -- -D warnings
       - name: Run doc
         run: cargo doc --locked --no-deps --all-features
+
+  test-javascript:
+    name: 🟨 JavaScript Tests
+    needs: [fast-checks, wordlist-sync-check]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: js/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+        working-directory: js
+      - name: Run tests
+        run: npm test
+        working-directory: js
+
+  test-dart:
+    name: 🎯 Dart Tests
+    needs: [fast-checks, wordlist-sync-check]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - name: Install dependencies
+        run: dart pub get
+        working-directory: dart
+      - name: Run tests
+        run: dart test
+        working-directory: dart

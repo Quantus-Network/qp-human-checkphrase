@@ -42,8 +42,11 @@ run_test() {
     echo ""
 }
 
-# Rust tests
-run_test "Rust" "" "cargo test -- --nocapture"
+# Wordlist sync check
+run_test "Wordlist Sync" "" "python3 scripts/sync_wordlists.py --check"
+
+# Rust tests (use release mode because PBKDF2 is intentionally slow)
+run_test "Rust" "" "cargo test --release -- --nocapture"
 
 # JavaScript tests (install deps if needed)
 run_test "JavaScript" "js" "npm install --silent && npm test"
