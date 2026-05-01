@@ -892,7 +892,7 @@ hire
 history
 hobby
 hockey
-hodl
+hold
 holiday
 hollow
 holy
@@ -1199,6 +1199,7 @@ myth
 name
 narrow
 nature
+nautilus
 navigable
 near
 neat
@@ -1212,7 +1213,6 @@ neutral
 never
 news
 next
-nft
 nice
 nifty
 night
