@@ -21,7 +21,7 @@
         "ahead",
         "aware",
         "sea",
-        "blithe",
+        "blockbuster",
         "hedgehog"
       ]
     },
@@ -52,7 +52,7 @@
       "description": "Polkadot",
       "expected": [
         "mention",
-        "border",
+        "boring",
         "switch",
         "indicate",
         "tornado"
@@ -141,7 +141,7 @@
       "expected": [
         "slab",
         "ceiling",
-        "best",
+        "better",
         "eminence",
         "scan"
       ]
@@ -348,7 +348,7 @@
       "address": "3OZM6rQnBow8w3Ndr86ZfnN8du9WmZIKYoWWKr99HXg1iwWKaqhAhdBw",
       "description": "Generated test vector #31",
       "expected": [
-        "boost",
+        "border",
         "zeal",
         "bright",
         "warrior",
@@ -363,7 +363,7 @@
         "ring",
         "siege",
         "loving",
-        "blade"
+        "blameless"
       ]
     },
     {
@@ -418,7 +418,7 @@
         "absent",
         "grit",
         "already",
-        "bike"
+        "biology"
       ]
     },
     {
@@ -438,7 +438,7 @@
       "expected": [
         "aim",
         "clean",
-        "blockbuster",
+        "bloom",
         "hover",
         "cute"
       ]
@@ -524,7 +524,7 @@
       "address": "5BIZMLhfx9IwiLyccSXGj3i5tyM0KFFEIDbugzt32NLqO8JodDGSWxYpJRlBzz",
       "description": "Generated test vector #47",
       "expected": [
-        "bike",
+        "biology",
         "half",
         "orient",
         "bulk",
@@ -649,7 +649,7 @@
         "item",
         "keypair",
         "wine",
-        "bold"
+        "bolster"
       ]
     },
     {
@@ -758,7 +758,7 @@
         "purity",
         "shrimp",
         "cheese",
-        "bloom",
+        "blossom",
         "check"
       ]
     },
@@ -935,7 +935,7 @@
         "enchant",
         "impact",
         "walnut",
-        "boom"
+        "boost"
       ]
     },
     {
@@ -946,7 +946,7 @@
         "embody",
         "core",
         "stock",
-        "border"
+        "boring"
       ]
     },
     {
@@ -1305,7 +1305,7 @@
       "address": "osmo1G9viIGNElLR8abMh0X9zuINamrWtFuaQvSMbkuuP4",
       "description": "Generated test vector #118",
       "expected": [
-        "exellent",
+        "excellent",
         "forget",
         "hail",
         "suggest",
@@ -1360,7 +1360,7 @@
       "address": "1uNdniKUYUOCsMBm2sXQ46S49KLF00d38aI8grbAKMSzAnkiI0wzr2",
       "description": "Generated test vector #123",
       "expected": [
-        "bloom",
+        "blossom",
         "salamander",
         "flying",
         "alcohol",
@@ -1417,7 +1417,7 @@
       "expected": [
         "height",
         "strong",
-        "board",
+        "boat",
         "star",
         "ally"
       ]
@@ -1791,7 +1791,7 @@
       "expected": [
         "epoch",
         "honey",
-        "bolster",
+        "bone",
         "garden",
         "zeal"
       ]
@@ -1857,7 +1857,7 @@
       "expected": [
         "formidable",
         "travel",
-        "blameless",
+        "blanket",
         "moment",
         "unbound"
       ]
@@ -2109,7 +2109,7 @@
       "description": "Generated test vector #191",
       "expected": [
         "ingenious",
-        "bonus",
+        "book",
         "empire",
         "crowd",
         "tip"
@@ -2297,7 +2297,7 @@
       "expected": [
         "attend",
         "loving",
-        "boom",
+        "boost",
         "neat",
         "eagle"
       ]
@@ -2310,14 +2310,14 @@
         "word",
         "appear",
         "pioneer",
-        "blithe"
+        "blockbuster"
       ]
     },
     {
       "address": "NFXP0nWIh16vXC4NWy6WFqOt34Pa4cbX0GTt",
       "description": "Generated test vector #210",
       "expected": [
-        "blanket",
+        "blessing",
         "rally",
         "wieldy",
         "tourist",
@@ -2363,7 +2363,7 @@
       "expected": [
         "faucet",
         "attune",
-        "bird",
+        "birth",
         "vested",
         "umbrella"
       ]
@@ -2386,7 +2386,7 @@
         "choose",
         "palace",
         "strategy",
-        "benifits",
+        "best",
         "couple"
       ]
     },
@@ -2427,7 +2427,7 @@
       "address": "qzkqGNjzn9wbJRAmf5xgqMH492k4vuK6rlJRZ",
       "description": "Generated test vector #220",
       "expected": [
-        "bicycle",
+        "bid",
         "core",
         "cricket",
         "muscle",
@@ -2494,7 +2494,7 @@
       "description": "Generated test vector #226",
       "expected": [
         "govern",
-        "blade",
+        "blameless",
         "soap",
         "pact",
         "east"
@@ -2526,7 +2526,7 @@
       "address": "1rLE1xcmlAdsHvbL354YKUvZAATTdgySQ",
       "description": "Generated test vector #229",
       "expected": [
-        "bone",
+        "bonus",
         "violin",
         "congress",
         "original",
@@ -2878,7 +2878,7 @@
       "address": "qzkWq5D1siuvUBAyzVz8vX8VbRmSsxtXuImnF1gpuDSD8cOQ4ErLxgNr",
       "description": "Generated test vector #261",
       "expected": [
-        "bolster",
+        "bone",
         "marble",
         "cloth",
         "novel",
@@ -2925,7 +2925,7 @@
         "keypair",
         "voice",
         "size",
-        "blur",
+        "blush",
         "year"
       ]
     },
@@ -2946,7 +2946,7 @@
       "expected": [
         "team",
         "mesmerize",
-        "board",
+        "boat",
         "ledger",
         "spice"
       ]
@@ -3046,7 +3046,7 @@
         "evocative",
         "toddler",
         "gentle",
-        "better",
+        "between",
         "only"
       ]
     },
@@ -3076,7 +3076,7 @@
       "address": "osmo19ZxZcipP2AJ1Mm2TqQzzr3YELMyRBPnNh3El",
       "description": "Generated test vector #279",
       "expected": [
-        "blithe",
+        "blockbuster",
         "avocado",
         "durable",
         "kitten",
@@ -3187,7 +3187,7 @@
       "description": "Generated test vector #289",
       "expected": [
         "ripple",
-        "supurb",
+        "superb",
         "light",
         "tribe",
         "huge"
@@ -3267,7 +3267,7 @@
         "favorite",
         "holy",
         "ramp",
-        "boom"
+        "boost"
       ]
     },
     {
@@ -3296,7 +3296,7 @@
       "address": "5VAK26Q9x7VfpfpZNfxuLDuIRBMfQKPbFelrJXHSphGkC0cLAQ8eDpyUOkxsn1KE",
       "description": "Generated test vector #299",
       "expected": [
-        "bonus",
+        "book",
         "muscle",
         "volcano",
         "never",
@@ -3486,7 +3486,7 @@
         "amazing",
         "spoil",
         "engrossing",
-        "book",
+        "boom",
         "employ"
       ]
     },
@@ -3497,8 +3497,8 @@
         "squeeze",
         "cream",
         "light",
-        "better",
-        "undisputable"
+        "between",
+        "under"
       ]
     },
     {
@@ -3758,7 +3758,7 @@
       "address": "4eZN23KZglG8kHTETLoAZ2H20kQtboU7bWKSAQ9C",
       "description": "Generated test vector #341",
       "expected": [
-        "benifits",
+        "best",
         "delectable",
         "glamorous",
         "juice",
@@ -4232,7 +4232,7 @@
       "description": "Generated test vector #384",
       "expected": [
         "apple",
-        "black",
+        "blade",
         "sudden",
         "profit",
         "youth"
@@ -4355,7 +4355,7 @@
         "nothing",
         "mango",
         "badge",
-        "bloom",
+        "blossom",
         "pudding"
       ]
     },
@@ -4519,7 +4519,7 @@
       "expected": [
         "catalog",
         "orbit",
-        "boost",
+        "border",
         "fish",
         "meticulous"
       ]
@@ -4606,7 +4606,7 @@
       "description": "Generated test vector #418",
       "expected": [
         "path",
-        "better",
+        "between",
         "butter",
         "extend",
         "term"
@@ -4693,7 +4693,7 @@
       "address": "0xJcEqU41MQakFVrMCqt7gRZVH3iEC3b8X79WU0YWVcsmFGeEHBU7noz",
       "description": "Generated test vector #426",
       "expected": [
-        "black",
+        "blade",
         "achieve",
         "myself",
         "advance",
@@ -4740,7 +4740,7 @@
         "reform",
         "senior",
         "nominee",
-        "blanket",
+        "blessing",
         "exalt"
       ]
     },
@@ -4782,7 +4782,7 @@
       "description": "Generated test vector #434",
       "expected": [
         "urban",
-        "blue",
+        "blur",
         "redeemed",
         "celebrate",
         "lunar"
@@ -4803,7 +4803,7 @@
       "address": "qzk90sZbMuaEUMmTEjoIAEzk6UUhC7y9F0RyvRyji87MB90B1qMDZPJN",
       "description": "Generated test vector #436",
       "expected": [
-        "bird",
+        "birth",
         "vintage",
         "clutch",
         "royal",
@@ -5058,7 +5058,7 @@
       "expected": [
         "grid",
         "bronze",
-        "better",
+        "between",
         "angel",
         "item"
       ]
@@ -5078,7 +5078,7 @@
       "address": "0xOIVVHySbyldeVJ73alYKVFMPJHjhjR7VVofT5HYtqzsb",
       "description": "Generated test vector #461",
       "expected": [
-        "bone",
+        "bonus",
         "glass",
         "keypair",
         "rocket",
@@ -5179,7 +5179,7 @@
       "expected": [
         "captain",
         "piece",
-        "undisputable",
+        "under",
         "phrase",
         "bus"
       ]
@@ -5191,7 +5191,7 @@
         "couple",
         "creek",
         "lawsuit",
-        "supurb",
+        "superb",
         "mesmerize"
       ]
     },
@@ -5320,7 +5320,7 @@
       "address": "dFFi7mGHDuH0eGxeTRpNyC8L88yUuABqWx2H811BmXdHJifyazwtBF6uPGyuV",
       "description": "Generated test vector #483",
       "expected": [
-        "exellent",
+        "excellent",
         "immaculate",
         "sleep",
         "soccer",
@@ -5708,7 +5708,7 @@
         "plate",
         "island",
         "chill",
-        "bottom",
+        "bounce",
         "backed"
       ]
     },
@@ -6061,7 +6061,7 @@
         "yard",
         "rapture",
         "practice",
-        "bicycle"
+        "bid"
       ]
     },
     {
@@ -6421,7 +6421,7 @@
       "description": "Generated test vector #583",
       "expected": [
         "divert",
-        "blithe",
+        "blockbuster",
         "catalog",
         "solution",
         "tolerant"
@@ -6545,7 +6545,7 @@
         "yield",
         "credit",
         "luxury",
-        "blade"
+        "blameless"
       ]
     },
     {
@@ -6765,7 +6765,7 @@
         "universe",
         "godsend",
         "moral",
-        "biology"
+        "bird"
       ]
     },
     {
@@ -6829,7 +6829,7 @@
       "expected": [
         "match",
         "exquisite",
-        "border",
+        "boring",
         "dry",
         "write"
       ]
@@ -6872,7 +6872,7 @@
       "description": "Generated test vector #624",
       "expected": [
         "cradle",
-        "bicycle",
+        "bid",
         "lenient",
         "attract",
         "light"
@@ -6886,7 +6886,7 @@
         "melt",
         "lounge",
         "creek",
-        "bold"
+        "bolster"
       ]
     },
     {
@@ -6948,7 +6948,7 @@
       "address": "cosmos1v8E5a0sZZG2EX1SidVr8pTrsakpCgS4Q",
       "description": "Generated test vector #631",
       "expected": [
-        "blanket",
+        "blessing",
         "announce",
         "together",
         "evolve",
@@ -7138,7 +7138,7 @@
         "step",
         "leader",
         "make",
-        "boss",
+        "bottom",
         "clutch"
       ]
     },
@@ -7203,7 +7203,7 @@
       "expected": [
         "screen",
         "won",
-        "boost",
+        "border",
         "alone",
         "satisfy"
       ]
@@ -7212,7 +7212,7 @@
       "address": "bc1qiHwyVVoiW1nPlUmcYSZTSdHKim6cUamoVQNHYnryVf",
       "description": "Generated test vector #655",
       "expected": [
-        "blanket",
+        "blessing",
         "zen",
         "claim",
         "prosper",
@@ -7290,7 +7290,7 @@
       "description": "Generated test vector #662",
       "expected": [
         "letter",
-        "benifits",
+        "best",
         "join",
         "vouch",
         "notable"
@@ -7322,7 +7322,7 @@
       "address": "osmo1AEfgIcNH3PiPNoQ05mlw2FESiAjhr",
       "description": "Generated test vector #665",
       "expected": [
-        "blanket",
+        "blessing",
         "adopt",
         "chuckle",
         "audit",
@@ -7502,7 +7502,7 @@
         "genuine",
         "stomach",
         "fiery",
-        "better"
+        "between"
       ]
     },
     {
@@ -7532,7 +7532,7 @@
       "description": "Generated test vector #684",
       "expected": [
         "segment",
-        "borrow",
+        "boss",
         "tonight",
         "imitate",
         "invulnerable"
@@ -7543,7 +7543,7 @@
       "description": "Generated test vector #685",
       "expected": [
         "cradle",
-        "board",
+        "boat",
         "system",
         "ticket",
         "quote"
@@ -7817,7 +7817,7 @@
       "address": "1dtigy2V3olpSah225y6DfpWaipZUpoAXYDbVMTONO",
       "description": "Generated test vector #710",
       "expected": [
-        "bounce",
+        "bounty",
         "ride",
         "cash",
         "carry",
@@ -7850,10 +7850,10 @@
       "address": "osmo1vfzOv5R4bztgo15oUTa0TpEE5ioi1",
       "description": "Generated test vector #713",
       "expected": [
-        "bonus",
+        "book",
         "meaningful",
         "huge",
-        "boss",
+        "bottom",
         "winner"
       ]
     },
@@ -7928,7 +7928,7 @@
       "description": "Generated test vector #720",
       "expected": [
         "impressed",
-        "black",
+        "blade",
         "egg",
         "speed",
         "pizza"
@@ -7994,7 +7994,7 @@
       "description": "Generated test vector #726",
       "expected": [
         "volume",
-        "under",
+        "undeniable",
         "quote",
         "sea",
         "theme"
@@ -8323,7 +8323,7 @@
       "address": "bc1qzapd4DIYHW7Foi5dyeUMsx0MVMYUC2k",
       "description": "Generated test vector #756",
       "expected": [
-        "blameless",
+        "blanket",
         "diagram",
         "soothe",
         "green",
@@ -8414,8 +8414,8 @@
         "rapport",
         "reward",
         "oblige",
-        "body",
-        "board"
+        "boil",
+        "boat"
       ]
     },
     {
@@ -8807,7 +8807,7 @@
       "address": "osmo1EtyFauFJt7GwN50PDGJ5hkAxxmw4ziCQizoXDopHMLUvv9ZY",
       "description": "Generated test vector #800",
       "expected": [
-        "bolster",
+        "bone",
         "flamingo",
         "auction",
         "million",
@@ -8918,7 +8918,7 @@
       "description": "Generated test vector #810",
       "expected": [
         "reclaim",
-        "birth",
+        "black",
         "favorite",
         "liking",
         "flight"
@@ -8940,7 +8940,7 @@
       "description": "Generated test vector #812",
       "expected": [
         "pencil",
-        "bonus",
+        "book",
         "giraffe",
         "sober",
         "metal"
@@ -8950,7 +8950,7 @@
       "address": "osmo1vpDrBjiFFBxYW4fHIGuE1H8hlKNbdKtvhotw",
       "description": "Generated test vector #813",
       "expected": [
-        "big",
+        "bike",
         "gallery",
         "amused",
         "click",
@@ -9194,7 +9194,7 @@
       "expected": [
         "nourish",
         "people",
-        "blade",
+        "blameless",
         "fire",
         "lawsuit"
       ]
@@ -9271,7 +9271,7 @@
       "expected": [
         "elevator",
         "shrimp",
-        "blockbuster",
+        "bloom",
         "pumpkin",
         "author"
       ]
@@ -9405,7 +9405,7 @@
         "onion",
         "open",
         "peanut",
-        "boring"
+        "borrow"
       ]
     },
     {
@@ -9526,7 +9526,7 @@
         "woman",
         "captain",
         "fantasy",
-        "bonus"
+        "book"
       ]
     },
     {
@@ -9558,7 +9558,7 @@
         "real",
         "corn",
         "fidelity",
-        "boil",
+        "bold",
         "care"
       ]
     },
@@ -9579,7 +9579,7 @@
       "expected": [
         "fog",
         "stomach",
-        "boat",
+        "body",
         "elbow",
         "action"
       ]
@@ -9612,7 +9612,7 @@
       "expected": [
         "lounge",
         "salute",
-        "blush",
+        "board",
         "frog",
         "rise"
       ]
@@ -9645,7 +9645,7 @@
       "expected": [
         "ripple",
         "verify",
-        "blithe",
+        "blockbuster",
         "chill",
         "adequate"
       ]
@@ -9668,7 +9668,7 @@
         "kitten",
         "become",
         "flip",
-        "bloom",
+        "blossom",
         "splendid"
       ]
     },
@@ -9764,7 +9764,7 @@
       "address": "cosmos18z1d8vG8IrQpOEQ8tEraomwUGzBKLljts",
       "description": "Generated test vector #887",
       "expected": [
-        "bounce",
+        "bounty",
         "privilege",
         "cure",
         "treat",
@@ -9790,7 +9790,7 @@
         "advocate",
         "praise",
         "defense",
-        "blue"
+        "blur"
       ]
     },
     {
@@ -9822,7 +9822,7 @@
         "fiscal",
         "actor",
         "connect",
-        "bird",
+        "birth",
         "pond"
       ]
     },
@@ -9896,8 +9896,8 @@
       "address": "bc1qvHUNZNWkia068eboWvrxspWSSUh466udsJw77dM38SvD8A4iBipzf",
       "description": "Generated test vector #899",
       "expected": [
-        "blithe",
-        "better",
+        "blockbuster",
+        "between",
         "landmark",
         "fiery",
         "ameliorate"
@@ -9920,7 +9920,7 @@
       "expected": [
         "remunerate",
         "onion",
-        "bounce",
+        "bounty",
         "triumph",
         "gripping"
       ]
@@ -10032,7 +10032,7 @@
         "recipe",
         "amenity",
         "tribe",
-        "under"
+        "undeniable"
       ]
     },
     {
@@ -10285,7 +10285,7 @@
         "success",
         "panther",
         "clump",
-        "bounce"
+        "bounty"
       ]
     },
     {
@@ -10293,7 +10293,7 @@
       "description": "Generated test vector #935",
       "expected": [
         "chest",
-        "biology",
+        "bird",
         "design",
         "wide",
         "group"
@@ -10317,7 +10317,7 @@
         "puzzle",
         "wins",
         "original",
-        "border",
+        "boring",
         "digital"
       ]
     },
@@ -10336,7 +10336,7 @@
       "address": "3mt1Dvp9Z9WU50x7wwiFI62wSAx9FGOt8Dndkvzq",
       "description": "Generated test vector #939",
       "expected": [
-        "bike",
+        "biology",
         "cure",
         "split",
         "keypair",
@@ -10382,7 +10382,7 @@
       "expected": [
         "act",
         "sister",
-        "biology",
+        "bird",
         "alpha",
         "crisp"
       ]
@@ -10469,7 +10469,7 @@
       "description": "Generated test vector #951",
       "expected": [
         "dentist",
-        "boat",
+        "body",
         "wild",
         "pool",
         "ski"
@@ -10569,7 +10569,7 @@
       "expected": [
         "giraffe",
         "enter",
-        "benifits",
+        "best",
         "age",
         "gospel"
       ]
@@ -10602,7 +10602,7 @@
       "expected": [
         "nourish",
         "solar",
-        "black",
+        "blade",
         "fair",
         "obvious"
       ]
@@ -10768,7 +10768,7 @@
         "dextrous",
         "topic",
         "spend",
-        "big",
+        "bike",
         "skill"
       ]
     },
@@ -10820,7 +10820,7 @@
       "address": "qzkg9YJ3XhE3hK4Etw5ylsn1SsXH8ST0BYCIv",
       "description": "Generated test vector #983",
       "expected": [
-        "bloom",
+        "blossom",
         "swarm",
         "project",
         "all",
@@ -10876,7 +10876,7 @@
       "description": "Generated test vector #988",
       "expected": [
         "age",
-        "blockbuster",
+        "bloom",
         "almost",
         "remunerate",
         "snazzy"
@@ -10898,7 +10898,7 @@
       "description": "Generated test vector #990",
       "expected": [
         "moment",
-        "bloom",
+        "blossom",
         "library",
         "upon",
         "bring"
@@ -10978,7 +10978,7 @@
         "cover",
         "account",
         "into",
-        "supurb"
+        "superb"
       ]
     },
     {
@@ -11142,7 +11142,7 @@
         "exchange",
         "ring",
         "output",
-        "blur",
+        "blush",
         "spatial"
       ]
     },
@@ -11227,7 +11227,7 @@
       "address": "3onu6OUmOfmQmAY63kFDsCZWBUoMXgVeR1I2vHPG6YPhNURQsGtq1mDJAUvvEJ0",
       "description": "Generated test vector #1020",
       "expected": [
-        "bounce",
+        "bounty",
         "amateur",
         "husband",
         "vigilant",
@@ -11329,7 +11329,7 @@
         "chic",
         "hen",
         "accurate",
-        "blessing",
+        "bliss",
         "title"
       ]
     },
@@ -11484,7 +11484,7 @@
         "thumb",
         "invite",
         "lucky",
-        "bicycle"
+        "bid"
       ]
     },
     {
@@ -11537,7 +11537,7 @@
       "expected": [
         "wolf",
         "unlock",
-        "bold",
+        "bolster",
         "topple",
         "regal"
       ]
@@ -11725,7 +11725,7 @@
         "squirrel",
         "invulnerable",
         "swank",
-        "boom",
+        "boost",
         "hundred"
       ]
     },
@@ -11746,7 +11746,7 @@
       "expected": [
         "enact",
         "earn",
-        "between",
+        "beyond",
         "sister",
         "shift"
       ]
@@ -11759,7 +11759,7 @@
         "revolution",
         "hundred",
         "banner",
-        "blouse"
+        "blue"
       ]
     },
     {
@@ -11800,7 +11800,7 @@
       "description": "Generated test vector #1072",
       "expected": [
         "either",
-        "body",
+        "boil",
         "digital",
         "network",
         "course"
@@ -11888,7 +11888,7 @@
       "description": "Generated test vector #1080",
       "expected": [
         "flag",
-        "board",
+        "boat",
         "twenty",
         "junior",
         "adequate"
@@ -11921,7 +11921,7 @@
       "description": "Generated test vector #1083",
       "expected": [
         "allure",
-        "blur",
+        "blush",
         "result",
         "autumn",
         "endear"
@@ -11944,7 +11944,7 @@
       "expected": [
         "mutual",
         "person",
-        "blanket",
+        "blessing",
         "express",
         "joyous"
       ]
@@ -12066,7 +12066,7 @@
         "habit",
         "worth",
         "ahead",
-        "bloom",
+        "blossom",
         "geekier"
       ]
     },
@@ -12121,7 +12121,7 @@
         "hybrid",
         "brick",
         "lucky",
-        "bliss",
+        "blithe",
         "six"
       ]
     },
@@ -12144,7 +12144,7 @@
         "rough",
         "arrest",
         "subject",
-        "blade"
+        "blameless"
       ]
     },
     {
@@ -12187,7 +12187,7 @@
         "clutch",
         "fertile",
         "vast",
-        "blanket",
+        "blessing",
         "pure"
       ]
     },
@@ -12207,10 +12207,10 @@
       "description": "Generated test vector #1109",
       "expected": [
         "talk",
-        "board",
+        "boat",
         "preeminent",
         "chunk",
-        "beyond"
+        "bicycle"
       ]
     },
     {
@@ -12309,7 +12309,7 @@
         "priceless",
         "agile",
         "shuffle",
-        "border"
+        "boring"
       ]
     },
     {
@@ -12526,7 +12526,7 @@
       "description": "Generated test vector #1138",
       "expected": [
         "update",
-        "blockbuster",
+        "bloom",
         "alcohol",
         "vibrant",
         "buff"
@@ -12551,7 +12551,7 @@
         "estate",
         "also",
         "large",
-        "border"
+        "boring"
       ]
     },
     {
@@ -12646,11 +12646,11 @@
       "address": "osmo1CxxRVoYOhCrnmN9ITb3FgIRsi5KAvm0PQA",
       "description": "Generated test vector #1149",
       "expected": [
-        "bone",
+        "bonus",
         "uncover",
         "wins",
         "unmatched",
-        "blessing"
+        "bliss"
       ]
     },
     {
@@ -12705,7 +12705,7 @@
         "talk",
         "develop",
         "balloon",
-        "under"
+        "undeniable"
       ]
     },
     {
@@ -12781,7 +12781,7 @@
         "legend",
         "oblige",
         "forget",
-        "blossom",
+        "blouse",
         "gorilla"
       ]
     },
@@ -12793,7 +12793,7 @@
         "unlimited",
         "tool",
         "aerobic",
-        "undisputable"
+        "under"
       ]
     },
     {
@@ -12868,7 +12868,7 @@
       "expected": [
         "crunch",
         "always",
-        "bid",
+        "big",
         "uncover",
         "scene"
       ]
