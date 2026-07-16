@@ -1,19 +1,53 @@
 use std::{
+	fmt,
 	fs::File,
 	io::{self, BufRead, BufReader},
 	path::Path,
 };
 
-use pbkdf2::pbkdf2_hmac;
-use sha2::Sha256;
+use argon2::{Algorithm, Argon2, Params, Version};
 
 // Constants
 const WORD_LIST_FILE: &str = "final_wordlist.txt";
-const WORD_COUNT: usize = 2048;
-const SALT: &str = "human-readable-checksum";
-const ITERATIONS: u32 = 40000;
-const CHECKSUM_LEN: usize = 5;
-const KEY_BYTECOUNT: usize = (CHECKSUM_LEN * 11).div_ceil(8);
+const WORD_LIST_SIZE: usize = 2048;
+
+/// Scheme version string, also used as the Argon2 salt (optionally extended
+/// with a domain-separation context: "human-checkphrase-v2|<context>").
+pub const VERSION: &str = "human-checkphrase-v2";
+
+// Argon2id parameters (RFC 9106). Memory-hardness is what keeps GPU/ASIC
+// grinding attacks close to defender cost, so prefer raising memory over
+// iterations if these are ever tuned.
+const MEMORY_KIB: u32 = 64 * 1024;
+const TIME_COST: u32 = 3;
+const PARALLELISM: u32 = 1;
+
+pub const DEFAULT_WORD_COUNT: usize = 5;
+/// Argon2 output must be at least 4 bytes; 3 words -> 5 key bytes.
+pub const MIN_WORD_COUNT: usize = 3;
+/// 11 words = 121 bits, the most that fits in the u128 used for bit slicing.
+pub const MAX_WORD_COUNT: usize = 11;
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum ChecksumError {
+	InvalidWordCount(usize),
+	Kdf(String),
+}
+
+impl fmt::Display for ChecksumError {
+	fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+		match self {
+			ChecksumError::InvalidWordCount(n) => write!(
+				f,
+				"word count must be between {} and {}, got {}",
+				MIN_WORD_COUNT, MAX_WORD_COUNT, n
+			),
+			ChecksumError::Kdf(e) => write!(f, "key derivation failed: {}", e),
+		}
+	}
+}
+
+impl std::error::Error for ChecksumError {}
 
 pub fn load_word_list() -> io::Result<Vec<String>> {
 	if !Path::new(WORD_LIST_FILE).exists() {
@@ -27,45 +61,90 @@ pub fn load_word_list() -> io::Result<Vec<String>> {
 	let reader = BufReader::new(file);
 	let words: Vec<String> = reader.lines().collect::<io::Result<_>>()?;
 
-	if words.len() != WORD_COUNT {
+	if words.len() != WORD_LIST_SIZE {
 		return Err(io::Error::new(
 			io::ErrorKind::InvalidData,
-			format!("Word list must contain exactly {} words, found {}", WORD_COUNT, words.len()),
+			format!("Word list must contain exactly {} words, found {}", WORD_LIST_SIZE, words.len()),
 		));
 	}
 
-	println!("Loaded {} words from {}", words.len(), WORD_LIST_FILE);
 	Ok(words)
 }
 
-pub fn address_to_checksum(address: &str, word_list: &[String]) -> Vec<String> {
-	// PBKDF2-HMAC-SHA256
-	let mut key = [0u8; KEY_BYTECOUNT];
-	pbkdf2_hmac::<Sha256>(address.as_bytes(), SALT.as_bytes(), ITERATIONS, &mut key);
-	// println!("Key : {}", hex::encode(&key));
+/// Canonicalize an address string before hashing.
+///
+/// Surrounding whitespace is stripped. 0x-prefixed hexadecimal addresses are
+/// lowercased so that EIP-55 checksum casing does not change the checkphrase.
+/// All other encodings (base58, bech32, SS58, ...) are case-sensitive and are
+/// passed through unchanged; callers must supply them in canonical form.
+pub fn normalize_address(address: &str) -> String {
+	let trimmed = address.trim();
+	let is_hex = trimmed.len() > 2
+		&& (trimmed.starts_with("0x") || trimmed.starts_with("0X"))
+		&& trimmed[2..].bytes().all(|b| b.is_ascii_hexdigit());
+	if is_hex {
+		trimmed.to_ascii_lowercase()
+	} else {
+		trimmed.to_string()
+	}
+}
 
-	// Convert key bytes to a big integer
-	let mut key_int = 0u128; // Using u128 to handle larger checksum lengths
-	for &byte in key.iter().take(KEY_BYTECOUNT) {
+/// Generate a checkphrase with the default word count (5) and no context.
+///
+/// Panics only if the word list is shorter than 2048 entries; use
+/// [`load_word_list`] to obtain a validated list.
+pub fn address_to_checksum(address: &str, word_list: &[String]) -> Vec<String> {
+	address_to_checksum_with_options(address, word_list, DEFAULT_WORD_COUNT, None)
+		.expect("default word count is valid")
+}
+
+/// Generate a checkphrase of `word_count` words, optionally domain-separated
+/// by `context` (e.g. a chain id such as "eip155:1"). Two wallets must use
+/// the same context string to see the same phrase for an address.
+pub fn address_to_checksum_with_options(
+	address: &str,
+	word_list: &[String],
+	word_count: usize,
+	context: Option<&str>,
+) -> Result<Vec<String>, ChecksumError> {
+	if !(MIN_WORD_COUNT..=MAX_WORD_COUNT).contains(&word_count) {
+		return Err(ChecksumError::InvalidWordCount(word_count));
+	}
+
+	let key_bytecount = (word_count * 11).div_ceil(8);
+	let salt = match context {
+		Some(ctx) if !ctx.is_empty() => format!("{}|{}", VERSION, ctx),
+		_ => VERSION.to_string(),
+	};
+
+	// Argon2id: memory-hard KDF so that GPU/ASIC farms cannot grind
+	// checkphrase collisions much faster than commodity hardware.
+	let params = Params::new(MEMORY_KIB, TIME_COST, PARALLELISM, Some(key_bytecount))
+		.map_err(|e| ChecksumError::Kdf(e.to_string()))?;
+	let argon2 = Argon2::new(Algorithm::Argon2id, Version::V0x13, params);
+
+	let mut key = vec![0u8; key_bytecount];
+	argon2
+		.hash_password_into(normalize_address(address).as_bytes(), salt.as_bytes(), &mut key)
+		.map_err(|e| ChecksumError::Kdf(e.to_string()))?;
+
+	// Convert key bytes to a big integer (u128 fits up to 11 words = 121 bits)
+	let mut key_int = 0u128;
+	for &byte in &key {
 		key_int = (key_int << 8) | byte as u128;
 	}
 
-	// take only the first CHECKSUM_LEN * 11 bits
-	key_int >>= (8 * KEY_BYTECOUNT) % 11;
-	// println!("Key Int: {}", &key_int);
-	// key_int &= (1 << (CHECKSUM_LEN * 11)) - 1;
+	// take only the first word_count * 11 bits
+	key_int >>= (8 * key_bytecount) % 11;
 
-	// Split into 11-bit indices
-	let mut indices = Vec::with_capacity(CHECKSUM_LEN);
-	for i in 0..CHECKSUM_LEN {
-		let shift = (CHECKSUM_LEN - 1 - i) * 11;
+	// Split into 11-bit indices and map to words
+	let mut words = Vec::with_capacity(word_count);
+	for i in 0..word_count {
+		let shift = (word_count - 1 - i) * 11;
 		let index = ((key_int >> shift) & 0x7FF) as usize;
-		indices.push(index);
+		words.push(word_list[index].clone());
 	}
-	// println!("Indexes: {:?}", indices);
-
-	// Map to words
-	indices.iter().map(|&i| word_list[i].clone()).collect()
+	Ok(words)
 }
 
 #[cfg(test)]
@@ -87,6 +166,9 @@ mod tests {
 		address: String,
 		description: String,
 		expected: Vec<String>,
+		#[serde(rename = "wordCount")]
+		word_count: Option<usize>,
+		context: Option<String>,
 	}
 
 	fn load_test_vectors() -> TestVectors {
@@ -106,7 +188,14 @@ mod tests {
 		let mut failed = 0;
 
 		for case in &vectors.test_cases {
-			let checksum = address_to_checksum(&case.address, &word_list);
+			let word_count = case.word_count.unwrap_or(DEFAULT_WORD_COUNT);
+			let checksum = address_to_checksum_with_options(
+				&case.address,
+				&word_list,
+				word_count,
+				case.context.as_deref(),
+			)
+			.expect("valid test vector options");
 
 			if checksum == case.expected {
 				passed += 1;
@@ -128,7 +217,12 @@ mod tests {
 	#[test]
 	fn test_wordlist_size() -> io::Result<()> {
 		let word_list = load_word_list()?;
-		assert_eq!(word_list.len(), WORD_COUNT, "Wordlist must have exactly {} words", WORD_COUNT);
+		assert_eq!(
+			word_list.len(),
+			WORD_LIST_SIZE,
+			"Wordlist must have exactly {} words",
+			WORD_LIST_SIZE
+		);
 		Ok(())
 	}
 
@@ -156,6 +250,66 @@ mod tests {
 		let checksum2 = address_to_checksum(addr2, &word_list);
 
 		assert_ne!(checksum1, checksum2, "Different addresses should produce different checksums");
+		Ok(())
+	}
+
+	#[test]
+	fn test_normalization() {
+		// EIP-55 casing and surrounding whitespace must not change the phrase
+		assert_eq!(
+			normalize_address(" 0x742d35Cc6634C0532925a3b844Bc9e7595f5bE21\n"),
+			"0x742d35cc6634c0532925a3b844bc9e7595f5be21"
+		);
+		assert_eq!(
+			normalize_address("0X742D35CC6634C0532925A3B844BC9E7595F5BE21"),
+			"0x742d35cc6634c0532925a3b844bc9e7595f5be21"
+		);
+		// base58 is case-sensitive and must pass through unchanged
+		assert_eq!(
+			normalize_address("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"),
+			"1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+		);
+		// non-hex 0x strings are not lowercased
+		assert_eq!(normalize_address("0xNotHexZZZ"), "0xNotHexZZZ");
+	}
+
+	#[test]
+	fn test_invalid_word_counts_rejected() -> io::Result<()> {
+		let word_list = load_word_list()?;
+		let address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+
+		for bad in [0, MIN_WORD_COUNT - 1, MAX_WORD_COUNT + 1] {
+			let result = address_to_checksum_with_options(address, &word_list, bad, None);
+			assert_eq!(result, Err(ChecksumError::InvalidWordCount(bad)));
+		}
+		Ok(())
+	}
+
+	#[test]
+	fn test_context_changes_phrase() -> io::Result<()> {
+		let word_list = load_word_list()?;
+		let address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+
+		let plain =
+			address_to_checksum_with_options(address, &word_list, DEFAULT_WORD_COUNT, None)
+				.unwrap();
+		let ctx = address_to_checksum_with_options(
+			address,
+			&word_list,
+			DEFAULT_WORD_COUNT,
+			Some("bitcoin"),
+		)
+		.unwrap();
+		assert_ne!(plain, ctx, "Context should domain-separate phrases");
+
+		let empty_ctx = address_to_checksum_with_options(
+			address,
+			&word_list,
+			DEFAULT_WORD_COUNT,
+			Some(""),
+		)
+		.unwrap();
+		assert_eq!(plain, empty_ctx, "Empty context should equal no context");
 		Ok(())
 	}
 }
