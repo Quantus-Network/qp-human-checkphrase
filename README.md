@@ -114,7 +114,7 @@ npm install human-readable-checksum
 import { loadWordList, addressToChecksum } from "human-readable-checksum";
 
 const wordList = loadWordList();
-const checksum = addressToChecksum("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", wordList);
+const checksum = await addressToChecksum("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", wordList);
 console.log(checksum.join("-")); // Age-Awake-Secret-Blossom-Hedgehog
 ```
 

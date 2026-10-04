@@ -29,14 +29,20 @@ describe("Generate a checksum from an address", () => {
     expect(wordList.length).toBe(2048);
   });
 
-  it("should pass all test vectors", () => {
+  it("should return a promise", async () => {
+    const checksum = addressToChecksum("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", wordList);
+    expect(checksum).toBeInstanceOf(Promise);
+    await checksum;
+  });
+
+  it("should pass all test vectors", async () => {
     console.log(`Running ${testVectors.testCases.length} test vectors...`);
 
     let passed = 0;
     let failed = 0;
 
     for (const testCase of testVectors.testCases) {
-      const checksum = addressToChecksum(testCase.address, wordList);
+      const checksum = await addressToChecksum(testCase.address, wordList);
 
       if (JSON.stringify(checksum) === JSON.stringify(testCase.expected)) {
         passed++;
@@ -51,22 +57,22 @@ describe("Generate a checksum from an address", () => {
 
     console.log(`\nResults: ${passed} passed, ${failed} failed`);
     expect(failed).toBe(0);
-  });
+  }, 30_000);
 
-  it("should generate deterministic checksums", () => {
+  it("should generate deterministic checksums", async () => {
     const address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
-    const checksum1 = addressToChecksum(address, wordList);
-    const checksum2 = addressToChecksum(address, wordList);
+    const checksum1 = await addressToChecksum(address, wordList);
+    const checksum2 = await addressToChecksum(address, wordList);
 
     expect(checksum1).toEqual(checksum2);
   });
 
-  it("should return different checksum for different addresses even if only one char differs", () => {
+  it("should return different checksum for different addresses even if only one char differs", async () => {
     const addr1 = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
     const addr2 = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DixfNa";
 
-    const checksum1 = addressToChecksum(addr1, wordList);
-    const checksum2 = addressToChecksum(addr2, wordList);
+    const checksum1 = await addressToChecksum(addr1, wordList);
+    const checksum2 = await addressToChecksum(addr2, wordList);
 
     expect(checksum1).not.toEqual(checksum2);
   });
