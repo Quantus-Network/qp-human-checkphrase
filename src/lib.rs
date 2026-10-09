@@ -39,6 +39,13 @@ pub fn load_word_list() -> io::Result<Vec<String>> {
 }
 
 pub fn address_to_checksum(address: &str, word_list: &[String]) -> Vec<String> {
+	assert!(
+		word_list.len() == WORD_COUNT,
+		"Word list must contain exactly {} words, found {}",
+		WORD_COUNT,
+		word_list.len()
+	);
+
 	// PBKDF2-HMAC-SHA256
 	let mut key = [0u8; KEY_BYTECOUNT];
 	pbkdf2_hmac::<Sha256>(address.as_bytes(), SALT.as_bytes(), ITERATIONS, &mut key);
@@ -157,5 +164,18 @@ mod tests {
 
 		assert_ne!(checksum1, checksum2, "Different addresses should produce different checksums");
 		Ok(())
+	}
+	#[test]
+	#[should_panic(expected = "Word list must contain exactly 2048 words, found 100")]
+	fn test_short_word_list_is_rejected() {
+		let short: Vec<String> = (0..100).map(|i| format!("word{}", i)).collect();
+		let _ = address_to_checksum("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", &short);
+	}
+
+	#[test]
+	#[should_panic(expected = "Word list must contain exactly 2048 words, found 0")]
+	fn test_empty_word_list_is_rejected() {
+		let empty: Vec<String> = Vec::new();
+		let _ = address_to_checksum("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", &empty);
 	}
 }
