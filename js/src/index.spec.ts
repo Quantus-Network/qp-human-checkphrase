@@ -59,6 +59,20 @@ describe("Generate a checksum from an address", () => {
     expect(failed).toBe(0);
   }, 30_000);
 
+  it("should reject a word list without exactly 2048 words", async () => {
+    const address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+
+    await expect(addressToChecksum(address, wordList.slice(0, 100))).rejects.toThrow(
+      "Word list must contain exactly 2048 words, found 100",
+    );
+    await expect(addressToChecksum(address, [])).rejects.toThrow(
+      "Word list must contain exactly 2048 words, found 0",
+    );
+    await expect(
+      addressToChecksum(address, [...wordList, "extra"]),
+    ).rejects.toThrow("Word list must contain exactly 2048 words, found 2049");
+  });
+
   it("should generate deterministic checksums", async () => {
     const address = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
     const checksum1 = await addressToChecksum(address, wordList);

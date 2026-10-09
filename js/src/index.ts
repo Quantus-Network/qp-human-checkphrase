@@ -4,6 +4,7 @@ import wordlist from "./wordlist.json";
 const SALT = "human-readable-checksum";
 const ITERATIONS = 40_000;
 const CHECKSUM_LEN = 5;
+const WORD_COUNT = 2048;
 // Fix: Use Math.ceil to round up to the nearest integer
 const KEY_BYTECOUNT = Math.ceil((CHECKSUM_LEN * 11) / 8);
 // Derive a full SHA-256 block, then keep the prefix. PBKDF2 defines a shorter
@@ -60,6 +61,12 @@ const addressToChecksum = async (
   address: string,
   wordList: string[],
 ): Promise<string[]> => {
+  if (wordList.length !== WORD_COUNT) {
+    throw new Error(
+      `Word list must contain exactly ${WORD_COUNT} words, found ${wordList.length}`,
+    );
+  }
+
   const key = await pbkdf2Sha256(address, SALT, ITERATIONS, KEY_BYTECOUNT);
 
   // Convert key bytes to a big integer (using BigInt for arbitrary precision)
