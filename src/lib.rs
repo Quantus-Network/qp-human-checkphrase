@@ -34,7 +34,8 @@ pub fn load_word_list() -> io::Result<Vec<String>> {
 		));
 	}
 
-	println!("Loaded {} words from {}", words.len(), WORD_LIST_FILE);
+	// No stdout logging here: this is a library, and side effects on stdout
+	// are a control-flow side channel for embedding wallet UIs.
 	Ok(words)
 }
 
